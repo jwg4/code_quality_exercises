@@ -1,5 +1,7 @@
 # code_quality_exercises
-A new exercise in code style, reviewing, editing, and quality control each week
+A new exercise in code style, reviewing, editing, and quality control each week.
+
+Solutions are suggestions only.
 
 ## Week 1.
 
