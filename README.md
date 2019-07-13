@@ -19,3 +19,10 @@ Your test code should specify an interface for the implementation (not just a li
 - Straightforward examples of strings with matching brackets
 - Straightforward examples of strings with non-matching brackets
 - Potentially tricky cases
+
+## Week 4.
+
+Work on the SQL query in exercises/week_004/nonmatching.sql
+- Comment it
+- Reformat it
+- Improve it
