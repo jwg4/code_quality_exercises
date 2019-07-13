@@ -26,3 +26,7 @@ Work on the SQL query in exercises/week_004/nonmatching.sql
 - Comment it
 - Reformat it
 - Improve it
+
+## Week 5.
+
+Improve the function parseGAAP, without changing what it does (you may change behavior which is clearly buggy).
