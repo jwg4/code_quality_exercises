@@ -13,5 +13,7 @@ INNER JOIN (
     AND cacheIdentifier LIKE "A%"
     AND result LIKE "%TimeAdjustment%"
 ) AS AuditE
-ON CloseB.identifier = AuditE.identifier
+-- The intention must be that cacheIdentifier columns match
+-- since identifier columns are different by construction.
+ON CloseB.cacheIdentifier = AuditE.cacheIdentifier
 WHERE CloseB.result <> AuditE.result
