@@ -5,7 +5,7 @@ Solutions are suggestions only.
 
 ## Introduction
 
-Testing and code quality, like coding itself, require directed practise to get better.
+Reviewing, editing and improving code, like coding itself, require directed practise to get better.
 
 Most of the code samples are in Python, with a few other languages. Reading code in non-core languages is an important skill for code quality.
 
