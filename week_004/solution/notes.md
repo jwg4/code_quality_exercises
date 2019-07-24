@@ -1,0 +1,1 @@
+This was a real-world example. The third solution file, `nonmatching_improved.sql`, rewrites the SQL query completely to do the same thing a different way. In fact, in doing so I realized that the original query didn't really make sense, and so I changed the query to do what seemed to be intended rather than what the original, broken query actually did.
