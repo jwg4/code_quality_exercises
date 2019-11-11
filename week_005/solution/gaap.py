@@ -33,9 +33,10 @@
 
         if context % 90 == 0:
             context_extended = list(range(context, context + 9))
-            expected_start_date = \
-                datetime.datetime.strptime(doc_date, "%Y%m%d") \
+            expected_start_date = (
+                datetime.datetime.strptime(doc_date, "%Y%m%d") 
                 - datetime.timedelta(days=context)
+            )
         elif context == "instant":
             expected_start_date = None
         else:
