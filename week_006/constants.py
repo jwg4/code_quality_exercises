@@ -1,0 +1,7 @@
+CHRISTMAS = (None, 12, 25)
+
+PI = 3.1415926535897932
+
+UNIX_EPOCH = date(1970, 1, 1)
+
+BASIC_KEYWORD_REGEX = r"[A-Z]+[.]?"
