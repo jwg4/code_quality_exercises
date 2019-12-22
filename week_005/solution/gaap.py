@@ -1,3 +1,13 @@
+def setup_logger(ignore_errors):
+    if ignore_errors == 2:
+        logging.basicConfig(filename='/tmp/xbrl.log',
+            level=logging.ERROR,
+            format='%(asctime)s %(levelname)s %(name)s %(message)s')
+        return logging.getLogger(__name__)
+    else:
+        return None
+
+class PlaceHolder(object):
     @classmethod
     def parseGAAP(self,
                   xbrl,
@@ -9,13 +19,7 @@
         """
         gaap_obj = GAAP()
 
-        if ignore_errors == 2:
-            logging.basicConfig(filename='/tmp/xbrl.log',
-                level=logging.ERROR,
-                format='%(asctime)s %(levelname)s %(name)s %(message)s')
-            logger = logging.getLogger(__name__)
-        else:
-            logger = None
+        logger = setup_logger(ignore_errors)
 
         # the default is today
         if doc_date == "":
