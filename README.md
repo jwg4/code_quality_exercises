@@ -28,3 +28,7 @@ Improve a difficult-to-understand SQL query, by making it clearer or rewriting i
 ## Week 5.
 
 Improve a very long Python function, without changing what it does.
+
+## Week 6.
+
+Add documentation to hard-coded constants.
