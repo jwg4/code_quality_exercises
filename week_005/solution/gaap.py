@@ -115,18 +115,28 @@ class PlaceHolder(object):
         except IndexError:
             raise XBRLParserException('problem getting contexts')
 
-        assets = xbrl.find_all("us-gaap:assets")
+        SEARCH_VALUES = {
+            'assets': "us-gaap:assets",
+            'current_assets': "us-gaap:assetscurrent",
+            'non_current_assets': re.compile(
+                "(us-gaap:)[^s]*(assetsnoncurrent)",
+                re.IGNORECASE | re.MULTILINE
+            ),
+            'liabilities_and_equity': re.compile(
+                "(us-gaap:)[^s]*(liabilitiesand)",
+                re.IGNORECASE | re.MULTILINE
+            ),
+        }
+
+        assets = xbrl.find_all(SEARCH_VALUES['assets'])
         gaap_obj.assets = self.data_processing(assets, xbrl,
             ignore_errors, logger, context_ids)
 
-        current_assets = \
-            xbrl.find_all("us-gaap:assetscurrent")
+        current_assets = xbrl.find_all(SEARCH_VALUES['current_assets'])
         gaap_obj.current_assets = self.data_processing(current_assets,
             xbrl, ignore_errors, logger, context_ids)
 
-        non_current_assets = \
-            xbrl.find_all(name=re.compile("(us-gaap:)[^s]*(assetsnoncurrent)",
-                          re.IGNORECASE | re.MULTILINE))
+        non_current_assets = xbrl.find_all(name=SEARCH_VALUES['non_current_assets'])
         if non_current_assets == 0 or not non_current_assets:
             # Assets  = AssetsCurrent  +  AssetsNoncurrent
             gaap_obj.non_current_assets = gaap_obj.assets \
@@ -137,8 +147,7 @@ class PlaceHolder(object):
                     ignore_errors, logger, context_ids)
 
         liabilities_and_equity = \
-            xbrl.find_all(name=re.compile("(us-gaap:)[^s]*(liabilitiesand)",
-                          re.IGNORECASE | re.MULTILINE))
+            xbrl.find_all(name=SEARCH_VALUES['liabilities_and_equity'])
         gaap_obj.liabilities_and_equity = \
             self.data_processing(liabilities_and_equity, xbrl,
                 ignore_errors, logger, context_ids)
